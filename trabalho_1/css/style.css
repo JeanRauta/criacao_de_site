@@ -5,7 +5,7 @@
 
 header {
     border-bottom: 1px solid #1b85dc;
-    height: 10vh;
+    height: 80px;
     display: flex;
 }
 
@@ -27,7 +27,6 @@ header {
 }
 
 main {
-    margin: 2vh 2vw;
     min-height: 80vh;
 }
 
@@ -35,10 +34,12 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    
 }
 
 .card a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 #modal-view {
@@ -47,6 +48,10 @@ main {
     display: none;
     width: 90vw;
     padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 #close-modal {
@@ -59,6 +64,10 @@ main {
     padding: 2vh 2vw;
     display: none;
     width: 90vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 #controls-note {

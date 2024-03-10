@@ -116,52 +116,65 @@ const showNote = (id) => {
     notes.forEach((noteItem) => {
         if (id == noteItem.id) {
             let titleNote = document.querySelector("#title-note");
+            titleNote.innerHTML = ""; // Limpa o conteúdo anterior do título
             let h2 = document.createElement('h2');
             h2.innerHTML = noteItem.title;
             titleNote.appendChild(h2);
+
+            let contentNote = document.querySelector("#content-note");
+            contentNote.innerHTML = ""; // Limpa o conteúdo anterior do conteúdo
             let pContent = document.createElement("p");
             pContent.innerHTML = noteItem.content;
-            modalView.querySelector("#content-note").appendChild(pContent);
+            contentNote.appendChild(pContent);
+
+            // Adiciona a última alteração ao conteúdo
             let pLastTime = document.createElement("p");
-            let time = new Date(noteItem.lastTime); // converte para data
+            let time = new Date(noteItem.lastTime);
             time = time.toLocaleDateString("pt-BR");
             pLastTime.innerHTML = "Última alteração : " + time;
-            modalView.querySelector("#content-note").appendChild(pLastTime);
+            contentNote.appendChild(pLastTime);
 
-            //Adiciona controles de edição e exclusão do item
-            divControls = document.querySelector("#controls-note");
+            // Adiciona controles de edição e exclusão do item
+            let divControls = document.querySelector("#controls-note");
             divControls.innerHTML = "";
 
-            divDel = document.createElement("div");
-            linkDel = document.createElement("a");
+            let divDel = document.createElement("div");
+            let linkDel = document.createElement("a");
             linkDel.setAttribute("id", noteItem.id);
-            iconDel = document.createElement("i");
+            let iconDel = document.createElement("i");
             iconDel.className = "bi bi-trash";
             iconDel.style.color = "#F00";
             linkDel.appendChild(iconDel);
             divDel.appendChild(linkDel);
             divControls.appendChild(divDel);
 
-            divEdit = document.createElement("div");
-            linkEdit = document.createElement("a");
+            let divEdit = document.createElement("div");
+            let linkEdit = document.createElement("a");
             linkEdit.setAttribute("id", noteItem.id);
-            iconEdit = document.createElement("i");
+            let iconEdit = document.createElement("i");
             iconEdit.className = "bi bi-pencil";
             iconEdit.style.color = "#00F";
             linkEdit.appendChild(iconEdit);
             divEdit.appendChild(linkEdit);
             divControls.appendChild(divEdit);
 
+            // Adiciona eventos de clique nos botões de edição e exclusão
             linkDel.addEventListener("click", () => {
                 if (confirm("Confirmar")) {
                     deleteNote(linkDel.id);
                 }
             });
+
             linkEdit.addEventListener("click", () => {
                 editNote(linkEdit.id);
             });
+
+            // Exibe o modal de visualização
+            modalView.style.display = 'block';
+            document.querySelector('#notes').style.display = 'none';
+            document.querySelector('#controls').style.display = 'none';
         }
-    })
+    });
 }
 
 /**
@@ -223,3 +236,13 @@ const editNote = (id) => {
 window.onload = () => {
     listNotes(loadNotes());
 }
+
+closeModal.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    modalView.style.display = 'none'; // Oculta o modal de visualização
+    document.querySelector('#title-note').innerHTML = ''; // Limpa o conteúdo do título
+    document.querySelector('#content-note').innerHTML = ''; // Limpa o conteúdo da nota
+    document.querySelector('#controls-note').innerHTML = ''; // Limpa os controles
+    document.querySelector('#notes').style.display = 'flex'; // Exibe a lista de notas
+    document.querySelector('#controls').style.display = 'block'; // Exibe os controles
+}, false);
