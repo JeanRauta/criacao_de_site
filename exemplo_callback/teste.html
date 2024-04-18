@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function expr() {
+            return new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    const na = Math.random()
+                    if (na > 0.5) {
+                        resolve('sucesso! o numero gerado foi' + na)
+                    }else{
+                        reject('falha! o numero gerado foi' + na)
+                    }
+                } , 1000)
+            })
+        }
+        async function chap() {
+            console.log(0)
+            try {
+                resultado = await expr()
+                console.log(resultado)
+            } catch (error) {
+                console.log(error)
+            }
+            console.log(1)
+            console.log(2)
+        }
+
+        chap()
+    </script>
+</body>
+</html>

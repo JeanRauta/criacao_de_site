@@ -3,34 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloco de notas</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/icons-css.css">
+    <title>Bloco de Notas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="col-12 d-flex">
-        <div class="left_header col-6 d-flex">
-            <i class="gg-notes" style="cursor: pointer;"></i>
-        </div>
-        <div class="right_header col-6 d-flex">
-            <i class="add_note gg-file-add" style="cursor: pointer;"></i>
-        </div>
+    <header>
+        <div id="logo"><img src="images/favicon.png" /></div>
+        <div id="display"></div>
+        <div id="user"></div>
     </header>
+    <msgs></msgs>
+    <main>
+        <div id="controls">
+            <div id="add-note">
+               <a href="" >
+                  <i class="bi bi-plus-square-fill" style="font-size: 2rem;"></i>
+               </a>
+           </div>
+         </div>
+         <div id="notes"></div>
 
-   <div class="add_card_modal">
-        <div class="d-flex justify-content-end"><i class="close_modal_btn gg-close-r" style="cursor: pointer;"></i> </div>
-        <input class="html_storage" type="hidden">
-        <label for="title">Título</label>
-        <input class="title" id="title" name="title" type="text">
-        <label for="text">Anotação</label>
-        <input class="text" id="text" type="text">
-        <button class="btn_submit">enviar</button>
-   </div>
+         <div id="modal-view">
+            <div id="close-modal">
+               <a href="" >
+                  <i class="bi bi-x-square" ></i>
+              </a>
+            </div>
+           <div id="title-note"></div>
+           <div id="content-note"> </div>
+           <div id="controls-note">
+              <i class="remove_note" style="color: red; cursor: pointer;">Apagar</i>
+           </div>
+         </div>
+        
+        <div id="modal">
+            <div class="mb-3" style="border-bottom: 1px solid #999; display:flex; justify-content: space-between;">
+               <div>
+                  <a href="" id="btn-save-note">
+                     <i class="bi bi-save" ></i>
+                  </a>
+               </div>
+             <div>
+               <a href="" style="color:#999" id="btn-close-note">
+                 <i class="bi bi-x-square" ></i>
+               </a>
+             </div>
+           </div>
+           <input type="hidden" id="input-id" >
+           <div class="mb-3">
+             <label for="title" class="form-label">Title</label>
+             <input type="text" class="form-control" id="input-title" placeholder="Title">
+           </div>
+           <div class="mb-3">
+             <label for="content" class="form-label">Notes</label>
+             <textarea class="form-control" id="input-content" rows="4"></textarea>
+           </div>
+   
+        </div>     
 
+    </main>
+
+    <footer>
+
+    </footer>
+    
     <script src="js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

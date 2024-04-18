@@ -1,32 +1,78 @@
 *{
-    padding: 0;
-    margin: 0;
-}
-header{
-    background-color: aquamarine;
-    height: 100px;
-    margin: auto;
-    padding: 0 100px;
-}
-
-.left_header{
-    justify-content: start;
-    align-items: center;
-}
-
-.right_header{
-    justify-content: end;
-    align-items: center;
-}
-
-.add_card_modal{
-    display: none;
-    justify-content: space-between;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+  }
+  
+  header{
+    border-bottom: 1px solid #1b85dc;
+    height: 10vh;
+    display:flex;
+  }
+  
+  #morfismo{
     width: 500px;
-    height: 200px;
-}
+    height: 500px;
+    background: rgba( 112, 112, 112, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+  
+  #logo{
+    width: 30vw;
+    height: 10vh;
+  }
+  
+  #logo img{
+    height: 8vh;
+  }
+  #display{
+    width: 50vw;
+  }
+  
+  #user{
+    width: 20vw;
+  }
+  
+  main{
+    margin: 2vh 2vw;
+    min-height: 80vh;
+  }
+  
+  #notes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .card a{
+    text-decoration: none;
+  }
+  
+  #modal-view{
+    border:1px solid #1b85dc;
+    position: absolute;
+    display:none;
+    width: 90vw;
+    padding:10px; 
+  }
+  
+  #close-modal{
+    float:right;
+  }
+  
+  #modal{
+    border:1px solid #1b85dc;
+    position: absolute;
+    padding:2vh 2vw;
+    display:none;
+    width: 90vw;
+  }
+  
+  #controls-note{
+    display:flex;
+    gap:10px;
+  }
+  
