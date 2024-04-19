@@ -7,8 +7,14 @@
     border-bottom: 1px solid #1b85dc;
     height: 10vh;
     display:flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
+  #controls{
+    margin: 20px;
+  }
+
   #morfismo{
     width: 500px;
     height: 500px;
@@ -20,25 +26,8 @@
     border: 1px solid rgba( 255, 255, 255, 0.18 );
   }
   
-  #logo{
-    width: 30vw;
-    height: 10vh;
-  }
-  
-  #logo img{
-    height: 8vh;
-  }
-  #display{
-    width: 50vw;
-  }
-  
-  #user{
-    width: 20vw;
-  }
-  
   main{
-    margin: 2vh 2vw;
-    min-height: 80vh;
+    padding: 20px;
   }
   
   #notes{
@@ -46,17 +35,21 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
+  .card{
+    cursor: pointer;
+  }
   
-  .card a{
+  a{
     text-decoration: none;
   }
   
   #modal-view{
     border:1px solid #1b85dc;
-    position: absolute;
     display:none;
-    width: 90vw;
-    padding:10px; 
+    margin: auto;
+    width: 96vw;
+    padding:20px;
   }
   
   #close-modal{
@@ -65,14 +58,50 @@
   
   #modal{
     border:1px solid #1b85dc;
-    position: absolute;
-    padding:2vh 2vw;
+    padding:20px;
     display:none;
-    width: 90vw;
+    width: 96vw;
+    margin: auto;
+  }
+
+  i{
+    cursor: pointer;
   }
   
-  #controls-note{
-    display:flex;
-    gap:10px;
-  }
-  
+
+  .gg-notes {
+    margin: 35px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,2));
+    width: 20px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 3px
+   }
+   
+   .gg-notes::after,
+   .gg-notes::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    height: 2px;
+    background: currentColor;
+    left: 2px
+   }
+   
+   .gg-notes::before {
+    box-shadow:
+    0 4px 0,
+    0 8px 0;
+    width: 12px;
+    top: 2px
+   }
+   
+   .gg-notes::after {
+    width: 6px;
+    top: 14px
+   } 
