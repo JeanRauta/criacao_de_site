@@ -5,7 +5,7 @@
   
   header{
     border-bottom: 1px solid #1b85dc;
-    height: 10vh;
+    height: 100px;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,6 +13,12 @@
   
   #controls{
     margin: 20px;
+  }
+
+  #controls-note{
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
   }
 
   #morfismo{

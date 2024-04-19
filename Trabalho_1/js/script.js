@@ -25,19 +25,14 @@ btnCloseModal.addEventListener('click', (evt) => {
 });
 
 btnSaveNote.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  modal.style.display = 'none'; // Fecha o modal de edição
-  addNote.style.display = 'block'; // Exibe o botão de adicionar nota
-  notes.style.display = 'flex'; // Exibe a lista de notas
-  
-  let objNote = {
-      id: document.querySelector("#input-id").value.trim(),
-      title: document.querySelector("#input-title").value.trim(),
-      content: document.querySelector("#input-content").value.trim()
-  };
-  saveNote(objNote);
+    evt.preventDefault();
+    let objNote = {
+        id: document.querySelector("#input-id").value.trim(),
+        title: document.querySelector("#input-title").value.trim(),
+        content: document.querySelector("#input-content").value.trim()
+    };
+    saveNote(objNote);
 });
-
 
 closeModalView.addEventListener('click', (evt) => {
     evt.preventDefault();
@@ -62,10 +57,10 @@ const saveNote = (note) => {
     }
     listNotes = JSON.stringify(listNotes);
     localStorage.setItem('notes', listNotes);
-    listNotes(); // Atualiza a lista de notas
-    modal.style.display = 'none'; // Fecha o modal de edição
-    addNote.style.display = 'block'; // Exibe o botão de adicionar nota
-    notes.style.display = 'flex'; // Exibe a lista de notas
+    listNotes(); 
+    modal.style.display = 'none'; 
+    addNote.style.display = 'block'; 
+    notes.style.display = 'flex'; 
 };
 
 const loadNotes = () => {
@@ -154,11 +149,11 @@ const deleteNote = (id) => {
     let noteDel = loadNotes();
     noteDel = noteDel.filter(note => note.id !== id);
     localStorage.setItem('notes', JSON.stringify(noteDel));
-    listNotes(); // Atualiza a lista de notas
+    listNotes(); 
     if (modalView.style.display === 'block') {
-        modalView.style.display = 'none'; // Fecha o modal de visualização
-        addNote.style.display = 'block'; // Exibe o botão de adicionar nota
-        notes.style.display = 'flex'; // Exibe a lista de notas
+        modalView.style.display = 'none'; 
+        addNote.style.display = 'block'; 
+        notes.style.display = 'flex'; 
     }
 };
 listNotes();
